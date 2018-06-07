@@ -1,0 +1,42 @@
+<mat-card>
+<mat-card-title>
+  <h2 class="heading" style="align-content: center ">LOGIN</h2>
+</mat-card-title>
+  <form class ="form" name="form" (ngSubmit)="f.form.valid " #f="ngForm" novalidate>
+    <!-- <div class="form-group" [ngClass]="{has-error':f.submitted && !email.valid}"> -->
+        <mat-form-field class="example-full-width">
+        
+      <div>
+      <label for="email" style="align-items: center">Email</label>
+      <br>
+      
+      <input  matInput type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    
+      
+    </div>
+
+  </mat-form-field >
+  <div *ngIf="f.submitted && !email.valid" class="help-block">
+      Email is required
+    </div>
+  <mat-form-field class="example-full-width">
+    <!-- </div> -->
+    
+    <div>
+    <label for="password">Password</label>
+    
+    <input  matInput type="password" name ="password" class="form-control" [(ngModel)]="model.password" #password="ngModel" required minlength="8">
+    
+    </div>
+  </mat-form-field >
+  <div *ngIf="f.submitted && !password.valid" class="help-block">
+      Password is required
+    </div>
+    <div class="form-group">
+       <!-- <button  type="submit">Submit</button> -->
+       <button mat-raised-button color="primary"  (click)="submit()">LOGIN</button>
+     </div>  
+   
+  </form>
+
+</mat-card>

@@ -12,6 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {ServerService} from './server.service';
 //import {Observable} from 'rxjs/Rx';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
 //import { DemoServiceComponent } from './demo-service/demo-service.component';  // replaces previous Http service
 
  
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     LoginFormComponent,
+    DashboardComponent,
    
   ],
   exports:[

@@ -4,14 +4,10 @@ import {
   FormGroup,
   FormControl
 } from '@angular/forms';
-class login {
-  public email:string="";
-  public password:string="";
-}
-import {HttpClient} from "@angular/common/http";
 
-import {ServerService} from '../server.service';
-//import {DemoService} from '../demo-service/demo-service.component';
+import {HttpClient} from "@angular/common/http";
+import {users}  from '../users';
+import {LoginService} from '../login.service';
 import {forkJoin} from 'rxjs'; 
 
 @Component({
@@ -19,46 +15,24 @@ import {forkJoin} from 'rxjs';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-
-
 export class LoginFormComponent implements OnInit {
-  _ServerService: any;
-  model:login=new login();
+  private user:users[]=[];
+  model:users=new users()
   message:string=""
   clicked:boolean=false
-  //loading= false;
-  public email:string="";
-  public password:string="";
-  final:string="LOGIN";
-  constructor(private http:HttpClient  ) {}
+  constructor(private _login:LoginService) {
+  }  
    
-  ngOnInit() {
-    this.submit();
-  }
-  server(){
-    this._ServerService.server().subscribe(
-       data=>{ this.email=data}
-
-    )}
-  
+  ngOnInit() { }
+ 
   submit(){
-  //   // console.log(this.model.email);
-  //   // console.log(this.model.password);
-  //  this._ServerService.get.subscribe(
-  //       data=>
-  //       {
-  //            this.server();
-  //            return true;
-
-  //       }
-
-
-
-   // )
+  
    this.clicked=true;
-   
-   console.log("you are successfully logged in");
-   this.message="You are successfully logged in";
+   this._login.getUser().subscribe(
+  (data:users[])=>this.user=data );
+  // console.log("you are successfully logged in");
+  // this.message="You are successfully logged in";
+  console.log(this.user)
 
   }
   

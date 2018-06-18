@@ -1,3 +1,30 @@
-<p>
-  dashboard works!
-</p>
+<!-- <header>
+ <div class="title">Title</div>
+ <nav>
+   <ul class="navbar">
+     <li>
+        <a class="navbarLink" [routerLink]="['login']" [routerLinkActive]="['active']">Login</a>
+     </li> 
+     <li>
+       <a class="navbarLink" [routerLink]="['signup']">Signup</a>
+     </li>
+
+   </ul>
+ </nav>
+
+
+</header> -->
+<mat-toolbar color="primary">
+
+    <span>
+        Dashboard
+      </span>
+    <span class="fill-remaining-space"></span>
+
+<button mat-button color="primary" *ngIf="authService.isLoggedIn()">Login</button>
+<button mat-button *ngIf="">logout</button>
+</mat-toolbar>
+<div class="body">
+You are successfully logged in!!!!!!!
+</div>
+

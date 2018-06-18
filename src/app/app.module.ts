@@ -9,13 +9,28 @@ import { MatButtonModule,MatCheckboxModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-import {ServerService} from './server.service';
-//import {Observable} from 'rxjs/Rx';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+import { RouterModule, Routes } from '@angular/router';
+import { PersistenceModule } from 'angular-persistence';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
-//import { DemoServiceComponent } from './demo-service/demo-service.component';  // replaces previous Http service
 
- 
+
+ const loginRoutes:Routes=[
+   {
+     path:'login', component:LoginFormComponent
+   },
+   {
+    path:'dashboard',component:DashboardComponent
+   },
+   {
+     path:'',redirectTo:'/login',pathMatch:'full'
+   },
+   {
+     path:'**',redirectTo:'/login',pathMatch:'full'
+   }
+ ]
 
 
 
@@ -32,7 +47,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatCheckboxModule,
     MatCardModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   imports: [
     BrowserModule,
@@ -42,7 +58,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatCheckboxModule,
     MatCardModule,
     MatInputModule,
-    MatIconModule,HttpClientModule
+    MatIconModule,
+    MatToolbarModule,
+    HttpClientModule,
+    RouterModule.forRoot( loginRoutes, { enableTracing: true } ),
+    PersistenceModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

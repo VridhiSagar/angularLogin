@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormsModule,
-  FormGroup,
-  FormControl
-} from '@angular/forms';
 
-import {HttpClient} from "@angular/common/http";
+import { Router } from '@angular/router';
+
 import {users}  from '../users';
 import {LoginService} from '../login.service';
-import {forkJoin} from 'rxjs'; 
+import {AuthenticationService} from '../authentication.service' 
 
 @Component({
   selector: 'app-login-form',
@@ -18,22 +14,29 @@ import {forkJoin} from 'rxjs';
 export class LoginFormComponent implements OnInit {
   private user:users[]=[];
   model:users=new users()
-  message:string=""
-  clicked:boolean=false
-  constructor(private _login:LoginService) {
+  message:string="";
+  private router:Router;
+
+  constructor(private _login:LoginService,private auth:AuthenticationService) {
   }  
    
   ngOnInit() { }
  
   submit(){
   
-   this.clicked=true;
-   this._login.getUser().subscribe(
-  (data:users[])=>this.user=data );
-  // console.log("you are successfully logged in");
-  // this.message="You are successfully logged in";
-  console.log(this.user)
+   this._login.getUser().subscribe((data:users[])=>{
+     this.user=data;
+     console.log(this.user);
+     
+    } );
+   
+   localStorage.setItem("auth",this.model.email)
+    //this.auth.storeData();
+    this.router.navigate(['/dashboard']);
 
-  }
   
+  }
+ 
+     
 }
+

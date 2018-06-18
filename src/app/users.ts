@@ -1,5 +1,7 @@
 export class users{
-  email:string;
-  password:string;
+ 
+  public email:string;
+  public password:string;
+  static email: any;
   
 }

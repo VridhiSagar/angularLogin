@@ -2,7 +2,7 @@
 <mat-card-title>
   <h2 class="heading" style="align-content: center ">LOGIN</h2>
 </mat-card-title>
-  <form class ="form" name="form" (ngSubmit)="f.form.valid " #f="ngForm" novalidate>
+  <form class ="form" name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
     <!-- <div class="form-group" [ngClass]="{has-error':f.submitted && !email.valid}"> -->
         <mat-form-field class="example-full-width">
         
@@ -34,7 +34,7 @@
     </div>
     <div class="form-group">
        <!-- <button  type="submit">Submit</button> -->
-       <button mat-raised-button color="primary"  (click)="submit()" >LOGIN</button>
+       <button mat-raised-button color="primary"  (click)="submit()" [disabled]='!f.valid'>LOGIN</button>
      </div>  
      <!-- <div *ngif='f.valid'>
        {{message}}

@@ -20,15 +20,12 @@
     <h2><span>Dashboard</span></h2>
     <span class="fill-remaining-space"></span>
 
-<button mat-button color="primary" *ngIf="authService.isLoggedIn()">Login</button>
-<button mat-button *ngIf="">logout</button>
+<!-- <button mat-raised-button color="primary"  >Login</button> -->
+<button mat-raised-button color="warn" click="logout()">Logout</button>
 </mat-toolbar>
 </div>
 <div class="body">
 {{user}},you are successfully logged in!!!!!!!
-
-
-
 
 </div>
 

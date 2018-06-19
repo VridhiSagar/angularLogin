@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../authentication.service'
-import { Observable } from 'rxjs';
+
+import {Router}from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,10 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   private user:string;
-  constructor() { }
+  constructor(private auth:AuthenticationService,private router:Router) { }
   
   ngOnInit() {
-   this.user=localStorage.getItem("auth");
+   this.user=sessionStorage.getItem("auth");
+   
+  }
+  logout(){
+
+    this.auth.logout();
+    this.router.navigate(['/login'])
+
+
 
   }
 

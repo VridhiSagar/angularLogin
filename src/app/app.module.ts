@@ -16,17 +16,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
+import {CloginGuard} from './clogin.guard'
 
  const loginRoutes:Routes=[
    {
-     path:'login', component:LoginFormComponent
+     path:'login', component:LoginFormComponent,canActivate:[CloginGuard]
    },
    {
     path:'',component:DashboardComponent,canActivate:[AuthGuard]
    },
-   {
-     path:'',redirectTo:'/dashboard',pathMatch:'full'
-   },
+  
    {
      path:'**',redirectTo:'/login',pathMatch:'full'
    }

@@ -11,11 +11,11 @@ export class AuthenticationService {
   constructor(private http :HttpClient) {}
 
  loginIn(username){
- localStorage.setItem("auth",username);
+  sessionStorage.setItem("auth",username);
 
  }
  logout(){
-  localStorage.removeItem("auth");
+  sessionStorage.removeItem("auth");
 
  }
     

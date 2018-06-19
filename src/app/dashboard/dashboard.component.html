@@ -1,27 +1,11 @@
-<!-- <header>
- <div class="title">Title</div>
- <nav>
-   <ul class="navbar">
-     <li>
-        <a class="navbarLink" [routerLink]="['login']" [routerLinkActive]="['active']">Login</a>
-     </li> 
-     <li>
-       <a class="navbarLink" [routerLink]="['signup']">Signup</a>
-     </li>
-
-   </ul>
- </nav>
-
-
-</header> -->
 <div>
 <mat-toolbar color="primary">
 
     <h2><span>Dashboard</span></h2>
     <span class="fill-remaining-space"></span>
 
-<!-- <button mat-raised-button color="primary"  >Login</button> -->
-<button mat-raised-button color="warn" click="logout()">Logout</button>
+
+<button mat-raised-button color="warn" (click)="logout()">Logout</button>
 </mat-toolbar>
 </div>
 <div class="body">

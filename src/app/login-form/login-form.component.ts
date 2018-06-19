@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {users}  from '../users';
 import {LoginService} from '../login.service';
 import {AuthenticationService} from '../authentication.service' 
-import {AuthGuard} from '../auth.guard'
+
 
 @Component({
   selector: 'app-login-form',

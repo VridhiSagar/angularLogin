@@ -12,20 +12,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { RouterModule, Routes } from '@angular/router';
-import { PersistenceModule } from 'angular-persistence';
+
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { AuthGuard } from './auth.guard';
 
  const loginRoutes:Routes=[
    {
      path:'login', component:LoginFormComponent
    },
    {
-    path:'dashboard',component:DashboardComponent
+    path:'',component:DashboardComponent,canActivate:[AuthGuard]
    },
    {
-     path:'',redirectTo:'/login',pathMatch:'full'
+     path:'',redirectTo:'/dashboard',pathMatch:'full'
    },
    {
      path:'**',redirectTo:'/login',pathMatch:'full'
@@ -62,7 +62,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatToolbarModule,
     HttpClientModule,
     RouterModule.forRoot( loginRoutes, { enableTracing: true } ),
-    PersistenceModule
+  
 
   ],
   providers: [],

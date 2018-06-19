@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
- 
-  constructor(private auth:AuthenticationService) { }
+  private user:string;
+  constructor() { }
   
   ngOnInit() {
-    
+   this.user=localStorage.getItem("auth");
+
   }
 
 }

@@ -14,7 +14,6 @@ export class LoginService {
 
   getUser():Observable<users[]>{
     return this.http.get<users[]>('https://s3.amazonaws.com/fetection/user.json')
-    
     }
 
 

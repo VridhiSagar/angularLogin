@@ -14,17 +14,21 @@
 
 
 </header> -->
+<div>
 <mat-toolbar color="primary">
 
-    <span>
-        Dashboard
-      </span>
+    <h2><span>Dashboard</span></h2>
     <span class="fill-remaining-space"></span>
 
 <button mat-button color="primary" *ngIf="authService.isLoggedIn()">Login</button>
 <button mat-button *ngIf="">logout</button>
 </mat-toolbar>
+</div>
 <div class="body">
-You are successfully logged in!!!!!!!
+{{user}},you are successfully logged in!!!!!!!
+
+
+
+
 </div>
 

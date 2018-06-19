@@ -20,8 +20,6 @@ export class DashboardComponent implements OnInit {
     this.auth.logout();
     this.router.navigate(['/login'])
 
-
-
   }
 
 }

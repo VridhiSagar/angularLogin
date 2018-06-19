@@ -26,7 +26,6 @@ export class LoginFormComponent implements OnInit {
    this._login.getUser().subscribe((data:users[])=>{
      this.user=data;
      console.log(this.user);
-     
     } );
    
    this.auth.loginIn(this.model.email);

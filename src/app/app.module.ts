@@ -14,8 +14,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
-import {CloginGuard} from './clogin.guard'
-
+import {CloginGuard} from './clogin.guard';
+import { SidenavComponent } from './sidenav/sidenav.component'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ToolbarComponent } from './toolbar/toolbar.component';
  const loginRoutes:Routes=[
    {
      path:'login', component:LoginFormComponent,canActivate:[CloginGuard]
@@ -37,6 +39,8 @@ import {CloginGuard} from './clogin.guard'
     AppComponent,
     LoginFormComponent,
     DashboardComponent,
+    SidenavComponent,
+    ToolbarComponent,
    
   ],
   exports:[
@@ -45,7 +49,8 @@ import {CloginGuard} from './clogin.guard'
     MatCardModule,
     MatInputModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import {CloginGuard} from './clogin.guard'
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
+    MatSidenavModule,
     HttpClientModule,
     RouterModule.forRoot( loginRoutes, { enableTracing: true } ),
   

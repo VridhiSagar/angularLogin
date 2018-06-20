@@ -1,0 +1,11 @@
+<div>
+    <mat-toolbar color="primary">
+    
+        <h2><span>Dashboard</span></h2>
+        <span class="fill-remaining-space"></span>
+    
+    
+    <div *ngIf="lo">
+      <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </div>
+    </mat-toolbar>

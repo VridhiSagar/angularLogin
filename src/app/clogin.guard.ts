@@ -13,7 +13,6 @@ export class CloginGuard implements CanActivate {
       if (sessionStorage.getItem("auth")){
            this.router.navigate(['/'])
         return false
-
       }
       return true;
 

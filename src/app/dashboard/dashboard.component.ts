@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../authentication.service'
+import {AuthenticationService} from '../authentication.service';
 
 
 @Component({
@@ -8,13 +8,14 @@ import {AuthenticationService} from '../authentication.service'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  private user:string;
-  constructor(private auth:AuthenticationService) { }
-  
+  private user: string;
+  check: boolean;
+  constructor(private auth: AuthenticationService) { }
+
   ngOnInit() {
-   this.user=sessionStorage.getItem("auth");
-   
+   this.user = sessionStorage.getItem('auth');
+    this.check = true;
   }
-  
+
 
 }

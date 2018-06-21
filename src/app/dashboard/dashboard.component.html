@@ -1,16 +1,13 @@
 
 
-<div class="body">
-{{user}},you are successfully logged in!!!!!!!
 
+<app-toolbar [isLoggedIn]="isLoggedIn" [check]="check"></app-toolbar>
+<div class="body"><div ><app-sidenav></app-sidenav></div>
+<div class="body2">
+    {{user}},you are successfully logged in!!!!!!!
+    
+</div>
 </div>
 
 
-<!-- <footer>
-        
-          <div layout="row" layout-align="center center" flex>
-            FOOTER INFO
-          </div>
-       
-      </footer>
- -->
+

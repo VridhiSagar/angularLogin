@@ -19,7 +19,10 @@ export class LoginFormComponent implements OnInit {
   constructor(private _login:LoginService,private auth:AuthenticationService,private router:Router) {
   }  
    
-  ngOnInit() { }
+  ngOnInit() {
+
+    
+   }
  
   submit(){
   
@@ -31,9 +34,10 @@ export class LoginFormComponent implements OnInit {
    this.auth.loginIn(this.model.email);
     //this.auth.storeData();
     this.router.navigate(['/']);
-
-  
+     
   }
+  
+   
  
      
 }

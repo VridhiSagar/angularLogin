@@ -13,7 +13,7 @@
 } */
 .example-container {
     position: absolute;
-    top:0;
+    top:70px;
     bottom: 50px;
     left: 0;
     right: 0;
@@ -32,6 +32,19 @@
       background: rgb(192, 170, 170);
       top:0;
       height:62px ;
+
+
+}
+.links{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ 
+
+
+}
+.link1,.link2{
+    text-align: center;
 
 
 }

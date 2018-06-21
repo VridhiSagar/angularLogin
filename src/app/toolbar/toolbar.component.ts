@@ -10,13 +10,19 @@ import {Router}from '@angular/router';
 export class ToolbarComponent implements OnInit {
 
   constructor(private auth:AuthenticationService,private router:Router) { }
-
+  //private loggedin:string=sessionStorage.getItem("auth");
+  public check:boolean=false;
   ngOnInit() {
-  }
-  isLoggedIn(){
+    
     
   }
+  isLoggedIn(){
 
+   this.check=true;
+
+  }
+  
+    
   logout(){
     console.log("hi")
     this.auth.logout();

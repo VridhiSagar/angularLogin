@@ -5,25 +5,19 @@ Main content
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" opened="true" class="sidenav">
   <div class="sidenavHeader">Sidenav</div>
- 
-    <a href="" >Link 1</a>
-    <br>
-    <br>
-    <br>
- 
-    <a href="">link2</a>
- 
+ <div class="links">
+   <div>
+    <a href="" class="link1">Link 1</a>
+   </div>
+    
+ <div>
+    <a href="" class="link2">link2</a>
+  </div>
+  </div>
   </mat-drawer>
   <mat-drawer-content>
-    <app-dashboard>
-    </app-dashboard>
+    <router-outlet></router-outlet>
   </mat-drawer-content>
  
 </mat-drawer-container>
 
-<!-- <mat-sidenav-container class="container">
-<mat-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
-      Sidenav
-    </mat-sidenav>
-
-  </mat-sidenav-container> -->

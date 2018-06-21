@@ -6,6 +6,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { SidenavLink1Component } from './sidenav-link1/sidenav-link1.component';
+import { SidenavLink2Component } from './sidenav-link2/sidenav-link2.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
@@ -17,8 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import {CloginGuard} from './clogin.guard';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { SidenavLink1Component } from './sidenav-link1/sidenav-link1.component';
-import { SidenavLink2Component } from './sidenav-link2/sidenav-link2.component';
 
  const loginRoutes: Routes = [
    {
@@ -30,6 +30,12 @@ import { SidenavLink2Component } from './sidenav-link2/sidenav-link2.component';
 
    {
      path: '**', redirectTo: '/login', pathMatch: 'full'
+   },
+   {
+   path: 'link1', component: SidenavLink1Component
+   },
+   {
+   path: 'link2', component: SidenavLink2Component
    }
  ];
 

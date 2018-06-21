@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import {CloginGuard} from './clogin.guard';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidenavLink1Component } from './sidenav-link1/sidenav-link1.component';
+import { SidenavLink2Component } from './sidenav-link2/sidenav-link2.component';
 
  const loginRoutes: Routes = [
    {
@@ -41,6 +43,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     DashboardComponent,
     SidenavComponent,
     ToolbarComponent,
+    SidenavLink1Component,
+    SidenavLink2Component,
 
   ],
   exports: [

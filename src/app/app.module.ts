@@ -20,6 +20,10 @@ import { AuthGuard } from './auth.guard';
 import {CloginGuard} from './clogin.guard';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegisterComponent } from './register/register.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
  const loginRoutes: Routes = [
    {
@@ -62,7 +66,9 @@ import { RegisterComponent } from './register/register.component';
     MatInputModule,
     MatIconModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatSelectModule
   ],
   imports: [
     BrowserModule,
@@ -75,6 +81,8 @@ import { RegisterComponent } from './register/register.component';
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatDatepickerModule,
+    MatSelectModule,
     HttpClientModule,
     RouterModule.forRoot( loginRoutes, { enableTracing: true } ),
   ],

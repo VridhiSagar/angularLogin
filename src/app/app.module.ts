@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SidenavLink1Component } from './sidenav-link1/sidenav-link1.component';
 import { SidenavLink2Component } from './sidenav-link2/sidenav-link2.component';
+import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
@@ -19,10 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import {CloginGuard} from './clogin.guard';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { RegisterComponent } from './register/register.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatNativeDateModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material';
 
 
  const loginRoutes: Routes = [
@@ -43,9 +44,6 @@ import {MatSelectModule} from '@angular/material/select';
    path: 'link2', component: SidenavLink2Component
    }
  ];
-
-
-
 
 @NgModule({
   declarations: [
@@ -73,6 +71,7 @@ import {MatSelectModule} from '@angular/material/select';
   imports: [
     BrowserModule,
     FormsModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -85,6 +84,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatSelectModule,
     HttpClientModule,
     RouterModule.forRoot( loginRoutes, { enableTracing: true } ),
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

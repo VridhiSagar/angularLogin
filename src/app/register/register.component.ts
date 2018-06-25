@@ -11,5 +11,8 @@ model: Register = new Register();
 
   ngOnInit() {
   }
+  submit( ) {
+    localStorage.setItem ('userInfo', JSON.stringify(this.model) );
 
+  }
 }

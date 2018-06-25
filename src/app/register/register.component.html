@@ -4,11 +4,11 @@
       <h2>Register</h2>
   </mat-card-title>
 
-<form class="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate >
+<form class="form"  #f="ngForm" novalidate >
 <div>
   <mat-form-field class="submitForm">
     <label>First Name</label>
-    <input matInput  class="form-control" [(ngModel)]="model.first" #first="ngModel" required>
+    <input matInput  class="form-control" [(ngModel)]="model.first" name="first" #first="ngModel" required>
   </mat-form-field>
 
 </div>
@@ -16,13 +16,13 @@
 <div>
   <mat-form-field class="submitForm">
     <label>Last Name</label>
-    <input  matInput  class="form-control"[(ngModel)]="model.last" #last="ngModel" required>
+    <input  matInput  class="form-control"[(ngModel)]="model.last" name="last" #last="ngModel" required>
   </mat-form-field>
 </div>
 <div>
   <mat-form-field class="submitForm">
     <label>Email</label>
-    <input matInput type="email" matInput  class="form-control" [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    <input matInput type="email"   class="form-control" [(ngModel)]="model.email" name="email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
   </mat-form-field>
   <div *ngIf="f.submitted && !email.valid" class="help-block">
       Email is required
@@ -32,7 +32,7 @@
   <mat-form-field>
     <label>D O B</label>
     
-    <input matInput [matDatepicker]="picker" [(ngModel)]=model.date >
+    <input matInput [matDatepicker]="picker" [(ngModel)]="model.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" required>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     
     <mat-datepicker #picker required></mat-datepicker>
@@ -41,7 +41,7 @@
 <div>
   <mat-form-field class="submitForm">
     <label>Contact Number</label>
-    <input matInput class="form-control" [(ngModel)]="model.contact" required minlength="10">
+    <input matInput class="form-control" [(ngModel)]="model.contact" name="contact" #contact="ngModel" required minlength="10">
   </mat-form-field>
 </div>
 
@@ -61,7 +61,7 @@
 <div>
   <mat-form-field class="submitForm">
     <label>Password</label>
-    <input type="password"  class="form-control">
+    <input matInput type="password"  class="form-control" [(ngModel)]="model.password" name="password" #password="ngModel" required>
   </mat-form-field>
 </div>
 <div *ngIf="f.submitted && !password.valid" class="help-block">
@@ -70,11 +70,13 @@
 <div>
   <mat-form-field class="submitForm">
     <label>Confirm Password</label>
-    <input type="password"required>
+    <input matInput type="password" required>
   </mat-form-field>
 </div>
 <div *ngIf="f.submitted && !password.valid" class="help-block">
     Password is required
   </div>
+
+  <button mat-raised-button color="primary" (click)="register()"  >Register</button>
 </form>
 </mat-card>

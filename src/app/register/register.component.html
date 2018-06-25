@@ -1,4 +1,8 @@
-<h2>Register</h2>
+
+<mat-card>
+  <mat-card-title>
+      <h2>Register</h2>
+  </mat-card-title>
 
 <form class="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate >
 <div>
@@ -18,8 +22,11 @@
 <div>
   <mat-form-field class="submitForm">
     <label>Email</label>
-    <input type="email" matInput  class="form-control" [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    <input matInput type="email" matInput  class="form-control" [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
   </mat-form-field>
+  <div *ngIf="f.submitted && !email.valid" class="help-block">
+      Email is required
+    </div>
 
 </div>
   <!-- <mat-form-field>
@@ -40,7 +47,8 @@
 <div>
   <mat-form-field class="submitForm">
     <label>Gender</label>
-    <mat-select [(value)]="selected" required>
+    <mat-select  required>
+      <mat-option>--None--</mat-option>
      <mat-option value="Male">Male</mat-option>
       <mat-option value="Female">Female</mat-option>
       <mat-option value="others">Others</mat-option>
@@ -51,13 +59,20 @@
 <div>
   <mat-form-field class="submitForm">
     <label>Password</label>
-    <input type="password" placeholder="password" class="form-control">
+    <input type="password"  class="form-control">
   </mat-form-field>
 </div>
+<div *ngIf="f.submitted && !password.valid" class="help-block">
+    Password is required
+  </div>
 <div>
   <mat-form-field class="submitForm">
     <label>Confirm Password</label>
-    <input type="password" placeholder="confirm password" required>
+    <input type="password"required>
   </mat-form-field>
 </div>
+<div *ngIf="f.submitted && !password.valid" class="help-block">
+    Password is required
+  </div>
 </form>
+</mat-card>

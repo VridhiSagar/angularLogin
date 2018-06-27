@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
-export class Data {
-Field: string;
-data: string;
-}
+export interface Data {
+  Field: string;
+  data: string;
+  }
 
-
-const UserData: Data[] = [
-  {Field: 'Name', data: 'balhhhhh'},
-  {Field: 'EmailId', data: 'jlkjdoqod'},
-  {Field: 'Password', data: 'hjhdajlji'},
-  {Field: 'DOB', data: 'hkjhdqlhxx'},
-  {Field: 'ContactInfo', data: 'hisachklhla'},
-];
+  const UserData: any[] = [
+    {Field: 'Name', data: 'balhhhhh'},
+    {Field: 'EmailId', data: 'jlkjdoqod'},
+    {Field: 'Password', data: 'hjhdajlji'},
+    {Field: 'DOB', data: 'hkjhdqlhxx'},
+    {Field: 'ContactInfo', data: 'hisachklhla'}
+  ];
 
 
 @Component({
@@ -29,3 +28,5 @@ export class SidenavLink1Component implements OnInit {
   }
 
 }
+
+

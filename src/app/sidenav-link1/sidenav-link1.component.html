@@ -1,19 +1,19 @@
+
 <h1>
 Hello User
 </h1>
 <mat-table [dataSource]="dataSource" class="table">
     <ng-container matColumnDef="Field">
-        <mat-header-cell *matHeaderCellDef>Field</mat-header-cell>>
-        <mat-cell *matCellDef="let userData">{{userData.Field}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef>Field</mat-header-cell>
+        <mat-cell *matCellDef="let userData"> {{userData.Field}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="data">
-            <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>>
-            <mat-cell *matCellDef="let userData">{{userData.data}}</mat-cell>>
+            <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
+            <mat-cell *matCellDef="let userData">{{userData.data}}</mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     
-
 </mat-table>

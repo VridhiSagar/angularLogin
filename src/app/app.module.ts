@@ -35,6 +35,9 @@ import {MatStepperModule} from '@angular/material/stepper';
      path: 'login', component: LoginFormComponent, canActivate: [CloginGuard]
    },
    {
+    path: 'register', component: RegisterComponent
+   },
+   {
     path: '', component: DashboardComponent, canActivate: [AuthGuard]
    },
 

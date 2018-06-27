@@ -16,7 +16,6 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {}
 
   logout() {
-    console.log('hi');
     this.auth.logout();
     this.router.navigate(['/login'] );
 

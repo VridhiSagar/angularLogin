@@ -24,6 +24,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
+import {MatStepperModule} from '@angular/material/stepper';
+
+
 
 
  const loginRoutes: Routes = [
@@ -66,7 +70,9 @@ import {MatFormFieldModule} from '@angular/material';
     MatToolbarModule,
     MatSidenavModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatStepperModule
   ],
   imports: [
     BrowserModule,
@@ -82,6 +88,8 @@ import {MatFormFieldModule} from '@angular/material';
     MatSidenavModule,
     MatDatepickerModule,
     MatSelectModule,
+    MatTableModule,
+    MatStepperModule,
     HttpClientModule,
     RouterModule.forRoot( loginRoutes, { enableTracing: true } ),
     MatNativeDateModule

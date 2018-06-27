@@ -28,5 +28,4 @@ export class SidenavLink1Component implements OnInit {
   ngOnInit() {
   }
 
-
 }

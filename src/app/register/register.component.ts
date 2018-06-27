@@ -15,6 +15,8 @@ model: Register = new Register();
   register( ) {
     localStorage.setItem ('userInfo', JSON.stringify(this.model) );
     this.router.navigate(['/']);
-
+  }
+  backToLogin() {
+    this.router.navigate(['/login']);
   }
 }

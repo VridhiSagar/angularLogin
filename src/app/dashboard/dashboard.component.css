@@ -1,6 +1,13 @@
 .body{
 display: flex;
+}
 
+.body2{
 
-
+left:200px
+}
+.dashboardContent{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
 }

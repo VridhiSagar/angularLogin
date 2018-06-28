@@ -1,7 +1,7 @@
 <app-toolbar [isLoggedIn]="isLoggedIn"></app-toolbar>
 <h2>REGISTER</h2>
 
-<form>
+<form #form="ngForm">
     <mat-vertical-stepper [linear]="isLinear" #stepper>
     
     <mat-step [stepControl]="usernameEmail">
@@ -9,22 +9,22 @@
          <ng-template class="label" matStepLabel >Fill You Name and Email</ng-template>     
             <div>
                         <mat-form-field class="submitForm">
-                          <label>First Name</label>
-                          <input matInput  class="form-control" [(ngModel)]="model.first" name="first" #first="ngModel" required>
+                          
+                          <input matInput  class="form-control" [(ngModel)]="model.first" name="first" #first="ngModel" placeholder="First Name" required>
                         </mat-form-field>
                       
             </div>
                       
             <div>
                         <mat-form-field class="submitForm">
-                          <label>Last Name</label>
-                          <input  matInput  class="form-control"[(ngModel)]="model.last" name="last" #last="ngModel" required>
+                          
+                          <input  matInput  class="form-control"[(ngModel)]="model.last" name="last" #last="ngModel" placeholder="Last Name" required>
                         </mat-form-field>
             </div>
             <div>
                         <mat-form-field class="submitForm">
-                          <label>Email</label>
-                          <input matInput type="email"   class="form-control" [(ngModel)]="model.email" name="email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                          
+                          <input matInput type="email"   class="form-control" [(ngModel)]="model.email" name="email" #email="ngModel" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                         </mat-form-field>
                         <div *ngIf="f.submitted && !email.valid" class="help-block">
                             Email is required
@@ -42,9 +42,9 @@
             <ng-template class="label" matStepLabel>Fill Your Personal Information</ng-template>
             <div>
             <mat-form-field>
-                    <label>D O B</label>
+                   
                     
-                    <input matInput [matDatepicker]="picker" [(ngModel)]="model.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" required>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="model.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" placeholder="Date Of Birth" required>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     
                     <mat-datepicker #picker required></mat-datepicker>
@@ -52,16 +52,16 @@
                 </div>
                 <div>
                   <mat-form-field class="submitForm">
-                    <label>Contact Number</label>
-                    <input matInput class="form-control" [(ngModel)]="model.contact" name="contact" #contact="ngModel" required minlength="10">
+                   
+                    <input matInput class="form-control" [(ngModel)]="model.contact" name="contact" #contact="ngModel" required minlength="10" maxlength="10" placeholder="Contact Number">
                   </mat-form-field>
                 </div>
                 
                 
                 <div>
                   <mat-form-field class="submitForm">
-                    <label>Gender</label>
-                    <mat-select [(ngModel)]="model.Gender" required>
+                    
+                    <mat-select [(ngModel)]="model.Gender" name ="gender" placeholder="Gender" required>
                       <mat-option>--None--</mat-option>
                      <mat-option [value]="Male">Male</mat-option>
                       <mat-option [value]="Female">Female</mat-option>
@@ -81,8 +81,8 @@
         <ng-template class="label" matStepLabel>Enter Your Password</ng-template>
         <div>
                 <mat-form-field class="submitForm">
-                  <label>Password</label>
-                  <input matInput type="password"  class="form-control" [(ngModel)]="model.password" name="password" #password="ngModel" required>
+                 
+                  <input matInput type="password"  class="form-control" [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="Password" required>
                 </mat-form-field>
               </div>
               <div *ngIf="f.submitted && !password.valid" class="help-block">
@@ -90,8 +90,8 @@
                 </div>
               <div>
                 <mat-form-field class="submitForm">
-                  <label>Confirm Password</label>
-                  <input matInput type="password" required>
+               
+                  <input matInput type="password" placeholder="Confirm Password" required>
                 </mat-form-field>
               </div>
               <div *ngIf="f.submitted && !password.valid" class="help-block">
@@ -103,6 +103,7 @@
     </mat-step>
     
     </mat-vertical-stepper>
-    <button mat-raised-button color="primary" (click)="register()"  >Register</button> 
+    <button mat-raised-button color="primary" (click)="register()" [disabled]= '!form.valid' >Register</button> 
     <button mat-raised-button color="primary" (click)="backToLogin()">Login</button>
     </form>
+    

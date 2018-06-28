@@ -25,14 +25,16 @@ export class SidenavLink1Component implements OnInit {
   dataSource = UserData;
   var: string ;
   currentUser: Register ;
+
   constructor() { }
 
   ngOnInit() {
     this.var = localStorage.getItem('userInfo');
+    console.log(this.var);
     this.currentUser = JSON.parse(this.var);
     console.log(this.currentUser);
   }
- 
+
 
   // tslint:disable-next-line:member-ordering
 

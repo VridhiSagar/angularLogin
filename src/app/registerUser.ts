@@ -3,7 +3,7 @@ export class Register {
  public last: string;
 public email: string;
 public DOB: number;
-public gender: string;
+public Gender: string;
 public contactNo: number;
 public password: string;
 }

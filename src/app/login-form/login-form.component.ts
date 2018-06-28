@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {users} from '../users';
 import {LoginService} from '../login.service';
 import {AuthenticationService} from '../authentication.service';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private _login: LoginService,
     private auth: AuthenticationService,
-    private router: Router) {
+    private router: Router,
+    public snackBar: MatSnackBar) {
   }
   ngOnInit() {}
 

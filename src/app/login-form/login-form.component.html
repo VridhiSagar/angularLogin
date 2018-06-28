@@ -9,10 +9,9 @@
         <mat-form-field class="example-full-width">
         
       <div>
-      <label for="email" style="align-items: center">Email</label>
-      <br>
       
-      <input  matInput type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      
+      <input  matInput type="email" name="email" placeholder="Email" class="form-control" [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
     
       
     </div>
@@ -25,14 +24,16 @@
     <!-- </div> -->
     
     <div>
-    <label for="password">Password</label>
     
-    <input  matInput type="password" name ="password" class="form-control" [(ngModel)]="model.password" #password="ngModel" required minlength="8">
+    <input  matInput type="password" placeholder="Password" name ="password" class="form-control" [(ngModel)]="model.password" #password="ngModel" required minlength="8">
     
     </div>
   </mat-form-field >
   <div *ngIf="f.submitted && !password.valid" class="help-block">
       Password is required
+    </div>
+    <div>
+      <mat-checkbox>Agree with terms and conditions</mat-checkbox>
     </div>
     <div class="buttons">
     <div class="form-group">

@@ -5,7 +5,7 @@
   <h2 class="heading" style="align-content: center ">LOGIN</h2>
 </mat-card-title>
   <form class ="form" name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
-    <!-- <div class="form-group" [ngClass]="{has-error':f.submitted && !email.valid}"> -->
+
         <mat-form-field class="example-full-width">
         
       <div>
@@ -34,14 +34,17 @@
   <div *ngIf="f.submitted && !password.valid" class="help-block">
       Password is required
     </div>
+    <div class="buttons">
     <div class="form-group">
-       <!-- <button  type="submit">Submit</button> -->
+       
        <button mat-raised-button color="primary"  (click)="submit()" [disabled]='!f.valid'>LOGIN</button>
      </div>  
-     <!-- <div *ngif='f.valid'>
-       {{message}}
-     </div> -->
-   
+ 
+     <div>
+       
+      <button mat-raised-button color="primary"  (click)="register()" >REGISTER</button>
+     </div>
+    </div>
   </form>
 
 </mat-card>

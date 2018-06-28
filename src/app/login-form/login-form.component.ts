@@ -31,6 +31,8 @@ export class LoginFormComponent implements OnInit {
     this.router.navigate(['/']);
 
   }
-
+ register() {
+   this.router.navigate(['./register']) ;
+ }
 }
 

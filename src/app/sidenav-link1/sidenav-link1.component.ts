@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Register} from '../registerUser' ;
 
 export interface Data {
   Field: string;
@@ -22,11 +23,19 @@ export interface Data {
 export class SidenavLink1Component implements OnInit {
   diplayedColumns: string[] = ['Field', 'data'];
   dataSource = UserData;
+  var: string ;
+  currentUser: Register ;
   constructor() { }
 
   ngOnInit() {
+    this.var = localStorage.getItem('userInfo');
+    this.currentUser = JSON.parse(this.var);
+    console.log(this.currentUser);
   }
+ 
+
+  // tslint:disable-next-line:member-ordering
+
+
 
 }
-
-

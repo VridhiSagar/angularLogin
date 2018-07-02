@@ -1,8 +1,9 @@
-
+<app-toolbar></app-toolbar>
+<div class="data">
 <h1>
 Hello User
 </h1>
-{{ dataSource | json}}
+
 <mat-table [dataSource]="dataSource" class="table">
     <ng-container matColumnDef="Field">
 
@@ -20,3 +21,4 @@ Hello User
 </mat-table>
 
 
+</div>

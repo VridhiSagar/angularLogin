@@ -21,10 +21,19 @@ export interface Data {
   styleUrls: ['./sidenav-link1.component.css']
 })
 export class SidenavLink1Component implements OnInit {
-  var: string ;
+  userInfo: string ;
   currentUser: Register ;
   displayedColumns: string[] = ['Field', 'data'];
-  dataSource:  Data[] = [
+
+  dataSource:  Data[] = [];
+
+  constructor() { }
+
+  ngOnInit() {
+    this.userInfo = localStorage.getItem('userInfo');
+    console.log(this.userInfo);
+    this.currentUser = JSON.parse(this.userInfo);
+    this.dataSource  = [
     {Field: 'Name', data: this.currentUser.first + this.currentUser.last },
     {Field: 'EmailId', data: this.currentUser.email},
     {Field: 'Password', data: this.currentUser.password},
@@ -32,18 +41,10 @@ export class SidenavLink1Component implements OnInit {
     {Field: 'ContactInfo', data: this.currentUser.contactNo}
   ];
 
-
-  constructor() { }
-
-  ngOnInit() {
-    this.var = localStorage.getItem('userInfo');
-    console.log(this.var);
-    this.currentUser = JSON.parse(this.var);
-    console.log(this.currentUser);
   }
 
 
-  // tslint:disable-next-line:member-ordering
+
 
 
 

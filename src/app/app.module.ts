@@ -11,22 +11,22 @@ import { SidenavLink2Component } from './sidenav-link2/sidenav-link2.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatCardModule} from '@angular/material/card';
+import { MatInputModule} from '@angular/material/input';
+import { MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
-import {CloginGuard} from './clogin.guard';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
-import {MatNativeDateModule} from '@angular/material';
-import {MatFormFieldModule} from '@angular/material';
-import {MatTableModule} from '@angular/material/table';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CloginGuard} from './clogin.guard';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSelectModule} from '@angular/material/select';
+import { MatNativeDateModule} from '@angular/material';
+import { MatFormFieldModule} from '@angular/material';
+import { MatTableModule} from '@angular/material/table';
+import { MatStepperModule} from '@angular/material/stepper';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { ValidateEqualDirective } from './validate-equal.directive';
 
 
@@ -52,7 +52,10 @@ import { ValidateEqualDirective } from './validate-equal.directive';
    },
    {
    path: 'link2', component: SidenavLink2Component, canActivate: [AuthGuard]
-   }
+   },
+   {
+    path: 'back', redirectTo: '', pathMatch: 'full'
+  },
  ];
 
 @NgModule({

@@ -34,6 +34,7 @@ import { ValidateEqualDirective } from './validate-equal.directive';
 
 
 
+
  const loginRoutes: Routes = [
    {
      path: 'login', component: LoginFormComponent, canActivate: [CloginGuard]
@@ -44,12 +45,12 @@ import { ValidateEqualDirective } from './validate-equal.directive';
    {
     path: '', component: DashboardComponent, canActivate: [AuthGuard]
    },
+   {
+     path: 'link1', component: SidenavLink1Component, canActivate: [AuthGuard]
+   },
 
    {
      path: '**', redirectTo: '/login', pathMatch: 'full'
-   },
-   {
-   path: 'link1', component: SidenavLink1Component
    },
    {
    path: 'link2', component: SidenavLink2Component

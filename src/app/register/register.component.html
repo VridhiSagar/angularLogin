@@ -5,7 +5,7 @@
     <mat-vertical-stepper [linear]="isLinear" #stepper>
     
     <mat-step [stepControl]="usernameEmail">
-        <form class="usernameEmail" #f="" novalidate>
+        <form class="usernameEmail" #form1="ngForm" novalidate>
          <ng-template class="label" matStepLabel >Fill You Name and Email</ng-template>     
             <div>
                         <mat-form-field class="submitForm">
@@ -26,7 +26,7 @@
                           
                           <input matInput type="email"   class="form-control" [(ngModel)]="model.email" name="email" #email="ngModel" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                         </mat-form-field>
-                        <div *ngIf="f.submitted && !email.valid" class="help-block">
+                        <div *ngIf="form.submitted && !email.valid" class="help-block">
                             Email is required
                         </div>
             </div>
@@ -38,7 +38,7 @@
     
     
     <mat-step [stepControl]="personalInformation">
-        <form class="form" #f="ngForm" novalidate>
+        <form class="form" #form2="ngForm" novalidate>
             <ng-template class="label" matStepLabel>Fill Your Personal Information</ng-template>
             <div>
             <mat-form-field>
@@ -78,6 +78,7 @@
         </form>
     </mat-step>
     <mat-step [stepControl]="Password">
+      <form class="form" #form3="ngForm" novalidate>
         <ng-template class="label" matStepLabel>Enter Your Password</ng-template>
         <div>
                 <mat-form-field class="submitForm">
@@ -85,16 +86,16 @@
                   <input matInput type="password"  class="form-control" [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="Password" required>
                 </mat-form-field>
               </div>
-              <div *ngIf="f.submitted && !password.valid" class="help-block">
+              <div *ngIf="form.submitted && !password.valid" class="help-block">
                   Password is required
                 </div>
               <div>
                 <mat-form-field class="submitForm">
                
-                  <input matInput type="password" placeholder="Confirm Password" required>
+                  <input matInput type="password" class="form-control"  [ngModel]="model.confirmPassword"  name="confirmPassword" #confirmPassword="ngModel" placeholder="Confirm Password" required>
                 </mat-form-field>
               </div>
-              <div *ngIf="f.submitted && !password.valid" class="help-block">
+              <div *ngIf="form.submitted &&( !confirmPassword.valid && password===confirmPassword)"  class="help-block">
                   Password is required
                 </div>
                 <div>
@@ -103,9 +104,10 @@
                 <div>
                 <button mat-raised-button color="primary" matStepperPrevious>Back</button>
             </div>
+          </form>
     </mat-step>
     
     </mat-vertical-stepper>
-    <button mat-raised-button color="primary" (click)="register()" [disabled]= '!form.valid' >Register</button> 
+    <button mat-raised-button color="primary" (click)="register()" [disabled]= "!form1.valid && (!form2.valid && !form3.valid)" >Register</button> 
     <button mat-raised-button color="primary" (click)="backToLogin()">Login</button>
     </form>

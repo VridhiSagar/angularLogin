@@ -11,7 +11,7 @@ export class CloginGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       if (sessionStorage.getItem('auth')) {
-           this.router.navigate(['/'] );
+
         return false;
       }
       return true;

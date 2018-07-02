@@ -2,8 +2,10 @@
 <h1>
 Hello User
 </h1>
+{{ dataSource | json}}
 <mat-table [dataSource]="dataSource" class="table">
     <ng-container matColumnDef="Field">
+
         <mat-header-cell *matHeaderCellDef>Field</mat-header-cell>
         <mat-cell *matCellDef="let userData"> {{userData.Field}} </mat-cell>
     </ng-container>
@@ -16,3 +18,5 @@ Hello User
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+
+

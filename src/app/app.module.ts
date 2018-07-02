@@ -53,7 +53,7 @@ import { ValidateEqualDirective } from './validate-equal.directive';
      path: '**', redirectTo: '/login', pathMatch: 'full'
    },
    {
-   path: 'link2', component: SidenavLink2Component
+   path: 'link2', component: SidenavLink2Component, canActivate: [AuthGuard]
    }
  ];
 

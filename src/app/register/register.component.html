@@ -92,7 +92,7 @@
               <div>
                 <mat-form-field class="submitForm">
                
-                  <input matInput type="password" class="form-control"  [ngModel]="model.confirmPassword"  name="confirmPassword" #confirmPassword="ngModel" placeholder="Confirm Password" required>
+                  <input matInput type="password" class="form-control"  [ngModel]="confirmPassword"  name="confirmPassword" #confirmPassword="ngModel" placeholder="Confirm Password" required>
                 </mat-form-field>
               </div>
               <div *ngIf="form.submitted &&( !confirmPassword.valid && password===confirmPassword)"  class="help-block">

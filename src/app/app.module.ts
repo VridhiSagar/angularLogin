@@ -26,9 +26,7 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
 import {MatStepperModule} from '@angular/material/stepper';
-
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
 import { ValidateEqualDirective } from './validate-equal.directive';
 
 

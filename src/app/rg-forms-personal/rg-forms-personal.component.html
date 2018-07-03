@@ -1,3 +1,49 @@
-<p>
-  rg-forms-personal works!
-</p>
+<mat-card>
+    <form [formGroup]="username">
+      <div>
+      <mat-form-field>
+          <input matInput class="form-control" matInput [matDatepicker]="picker" formControlName="DOB" placeholder="Date Of Birth" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker required></mat-datepicker>
+      
+      </mat-form-field>
+      <div *ngIf="username.controls['DOB'].touched && !username.controls['DOB'].valid">
+          <span *ngIf="username.controls['DOB'].hasError('required')">
+              Date Of Birth is required
+            </span>
+      </div>
+    </div>
+    <div>
+    <mat-form-field>
+    
+        <mat-select class="form-control" placeholder="Gender" formControlName="gender" required>
+            <mat-option>--None--</mat-option>
+            <mat-option [value]="Male">Male</mat-option>
+            <mat-option [value]="Female">Female</mat-option>
+            <mat-option [value]="others">Others</mat-option>
+  </mat-select>
+       
+      </mat-form-field>
+      <div *ngIf="username.controls['gender'].touched && !username.controls['gender'].valid">
+          <span *ngIf="username.controls['gender'].hasError('required')">
+            Last name is required
+          </span>
+          </div>
+    </div>
+    <div>
+    <mat-form-field>
+        <input matInput class="form-control" formControlName="contact" required placeholder="Contact Number">
+
+    </mat-form-field>
+    <div *ngIf="username.controls['contact'].touched && !username.controls['contact'].valid">
+        <span *ngIf="username.controls['contact'].hasError('required')  ">
+    
+          email is required
+        </span>
+        
+        </div>
+    </div>
+    
+    </form>
+    </mat-card>
+    

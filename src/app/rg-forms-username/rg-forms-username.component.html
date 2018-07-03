@@ -29,9 +29,15 @@
   <input matInput class="form-control" id="email" formControlName="email" placeholder="Email" required>
 </mat-form-field>
 <div *ngIf="username.controls['email'].touched && !username.controls['email'].valid">
-    <span *ngIf="username.controls['email'].hasError('required')">
+    <span *ngIf="username.controls['email'].hasError('required')  ">
+
       email is required
     </span>
+    <br>
+    <span *ngIf="username.controls['email'].hasError('required')  ">
+      
+        email is invalid
+      </span>
     </div>
 </div>
 

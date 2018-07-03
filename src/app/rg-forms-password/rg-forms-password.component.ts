@@ -11,7 +11,8 @@ passwordInfo: FormGroup;
   constructor(private frnbuilder: FormBuilder) {
     this.passwordInfo = frnbuilder.group({
       password: new FormControl('', Validators.required),
-      confirmPassword: new FormControl('', Validators.required)
+      confirmPassword: new FormControl('', Validators.compose([Validators.required ,
+                                                               Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]))
 
     });
   }

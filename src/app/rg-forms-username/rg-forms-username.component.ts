@@ -12,18 +12,7 @@ export class RgFormsUsernameComponent implements OnInit {
   username: FormGroup;
 
 
-  account_validation_messages = {
-    'firstname': [
-      { type: 'required', message: 'Username is required' },
-    ],
-    'lastname': [
-      { type: 'required', message: 'Username is required' },
-    ],
-    'email': [
-      { type: 'required', message: 'Email is required' },
-      { type: 'pattern', message: 'Enter a valid email' }
-    ]
-  };
+
   constructor(private frmbuilder: FormBuilder) {
 
     this.username = frmbuilder.group({

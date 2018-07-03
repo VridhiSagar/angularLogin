@@ -1,24 +1,41 @@
 <mat-card>
-<form [formGroup]="Username">
+<form [formGroup]="username">
   <div>
   <mat-form-field>
     <input matInput class="form-control"  formControlName="firstname" placeholder="First Name" required>
-  <mat-error></mat-error>
+  
   </mat-form-field>
+  <div *ngIf="username.controls['firstname'].touched && !username.controls['firstname'].valid">
+      <span *ngIf="username.controls['firstname'].hasError('required')">
+          First name is required
+        </span>
+  </div>
 </div>
 <div>
 <mat-form-field>
 
     <input matInput class="form-control" id="lastname" formControlName="lastname" placeholder="Last Name" required>
+   
   </mat-form-field>
+  <div *ngIf="username.controls['lastname'].touched && !username.controls['lastname'].valid">
+      <span *ngIf="username.controls['lastname'].hasError('required')">
+        Last name is required
+      </span>
+      </div>
 </div>
 <div>
 <mat-form-field>
 
   <input matInput class="form-control" id="email" formControlName="email" placeholder="Email" required>
-  <mat-error class="error-message" *ngIf="accountDetailsForm.get('email').hasError(validation.type) && (accountDetailsForm.get('email').dirty || accountDetailsForm.get('email').touched)">{{validation.message}}</mat-error>
 </mat-form-field>
+<div *ngIf="username.controls['email'].touched && !username.controls['email'].valid">
+    <span *ngIf="username.controls['email'].hasError('required')">
+      email is required
+    </span>
+    </div>
 </div>
 
 </form>
 </mat-card>
+
+

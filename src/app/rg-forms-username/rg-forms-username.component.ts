@@ -10,13 +10,25 @@ import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angula
   styleUrls: ['./rg-forms-username.component.css']
 })
 export class RgFormsUsernameComponent implements OnInit {
-  username: FormGroup;
+
+
+Program: FormGroup;
 
 
 
   constructor(private frmbuilder: FormBuilder) {
 
     this.username = frmbuilder.group({
+      firstname: new FormControl('', Validators.required),
+      lastname: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ]))
+    });
+  }
+  buildform(program: Program): FormGroup {
+   return new FormGroup({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.compose([

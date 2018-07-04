@@ -4,22 +4,21 @@
 <form #form="ngForm" [FormGroup]="register">
 <mat-vertical-stepper [linear]="isLinear" #stepper>
     
-    <mat-step [stepControl]="usernameEmail">
-        <form class="usernameEmail" #form1="ngForm" novalidate>
-
+    <mat-step [stepControl]="register.get('username')">
+     
          <ng-template class="label" matStepLabel >Fill You Name and Email</ng-template>     
            <app-rg-forms-username></app-rg-forms-username>
                        <div>
                             <button mat-raised-button color="primary" matStepperNext>Next</button>
                           </div>
-        </form> 
+        
     </mat-step>
 
 
     
     
-    <mat-step [stepControl]="personalInformation">
-        <form class="form" #form2="ngForm" novalidate>
+    <mat-step [stepControl]="personal">
+       
             <ng-template class="label" matStepLabel>Fill Your Personal Information</ng-template>
 
             <app-rg-forms-personal></app-rg-forms-personal>
@@ -27,7 +26,7 @@
                                   <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                                   <button mat-raised-button color="primary" matStepperNext>Next</button>
              </div>
-        </form>
+        
     </mat-step>
 
 

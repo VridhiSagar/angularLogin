@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterSubmitService } from '../register-submit.service';
 
 import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 

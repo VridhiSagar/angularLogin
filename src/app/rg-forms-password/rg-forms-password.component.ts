@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { RegisterSubmitService } from '../register-submit.service';
 
 @Component({
   selector: 'app-rg-forms-password',

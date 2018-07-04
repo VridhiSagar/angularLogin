@@ -15,7 +15,7 @@ passwordInfo: FormGroup;
       confirmPassword: new FormControl('', Validators.compose([Validators.required ,
                                                                Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]))
 
-    }, this.passwordMatchValidator);
+    }, {validator: this.passwordMatchValidator});
   }
   passwordMatchValidator(g: FormGroup) {
 //     return g.get('password').value === g.get('passwordConfirm').value

@@ -18,9 +18,18 @@ passwordInfo: FormGroup;
     }, this.passwordMatchValidator);
   }
   passwordMatchValidator(g: FormGroup) {
-    return g.get('password').value === g.get('passwordConfirm').value
-       ? null : {'mismatch': true};
- }
+//     return g.get('password').value === g.get('passwordConfirm').value
+//        ? null : {'mismatch': true};
+if (!g.get('password') || !g.get('confirmPassword')) {
+  return null;
+}
+
+if (!g.get('password').value === !g.get('confirmPassword').value ) {
+  return null;
+}
+// tslint:disable-next-line:no-unused-expression
+return {mismatch: true};
+}
   ngOnInit() {
   }
 

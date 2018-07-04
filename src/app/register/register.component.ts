@@ -21,4 +21,6 @@ model: Register = new Register();
   backToLogin() {
     this.router.navigate(['/login']);
   }
+
+
 }

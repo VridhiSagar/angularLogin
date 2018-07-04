@@ -1,0 +1,115 @@
+<app-toolbar [isLoggedIn]="isLoggedIn"></app-toolbar>
+<h2>REGISTER</h2>
+
+<form #form="ngForm">
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+    
+    <mat-step [stepControl]="usernameEmail">
+        <form class="usernameEmail" #form1="ngForm" novalidate>
+
+         <ng-template class="label" matStepLabel >Fill You Name and Email</ng-template>     
+            <div>
+                        <mat-form-field class="submitForm">
+                         <input matInput  class="form-control" [(ngModel)]="model.first" name="first" #first="ngModel" placeholder="First Name" required>
+                        </mat-form-field>
+                      
+            </div>
+                      
+            <div>
+                        <mat-form-field class="submitForm">
+                          <input  matInput  class="form-control"[(ngModel)]="model.last" name="last" #last="ngModel" placeholder="Last Name" required>
+                        </mat-form-field>
+            </div>
+            <div>
+                        <mat-form-field class="submitForm">
+                          <input matInput type="email"   class="form-control" [(ngModel)]="model.email" name="email" #email="ngModel" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></mat-form-field>
+                        <div *ngIf="form.submitted && !email.valid" class="help-block">
+                            Email is required
+                        </div>
+            </div>
+                       <div>
+                            <button mat-raised-button color="primary" matStepperNext>Next</button>
+                          </div>
+        </form> 
+    </mat-step>
+
+
+    
+    
+    <mat-step [stepControl]="personalInformation">
+        <form class="form" #form2="ngForm" novalidate>
+            <ng-template class="label" matStepLabel>Fill Your Personal Information</ng-template>
+
+            <div>
+                        <mat-form-field class="submitForm">
+                                    <input matInput class="form-control" matInput [matDatepicker]="picker" [(ngModel)]="model.DOB" name="dateOfBirth" #dateOfBirth="ngModel" placeholder="Date Of Birth" required>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker required></mat-datepicker>
+                        </mat-form-field>
+            </div>
+            <div>
+                     <mat-form-field class="submitForm">
+                                    <input matInput class="form-control" [(ngModel)]="model.contactNo" name="contact" #contact="ngModel" required minlength="10" maxlength="10" placeholder="Contact Number">
+                     </mat-form-field>
+            </div>
+                        
+                
+            <div>
+                      <mat-form-field class="submitForm">
+                        <mat-select class="form-control" [(ngModel)]="model.Gender" name ="gender" placeholder="Gender" required>
+                                  <mat-option>--None--</mat-option>
+                                  <mat-option [value]="Male">Male</mat-option>
+                                  <mat-option [value]="Female">Female</mat-option>
+                                  <mat-option [value]="others">Others</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                  
+            </div>
+            <div>
+                                  <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                  <button mat-raised-button color="primary" matStepperNext>Next</button>
+             </div>
+        </form>
+    </mat-step>
+
+
+
+
+    <mat-step [stepControl]="Password">
+      <form class="form" #form3="ngForm" novalidate>
+        <ng-template class="label" matStepLabel>Enter Your Password</ng-template>
+        <div>
+                <mat-form-field class="submitForm">
+                                    <input matInput type="password"  class="form-control" [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="Password" required>
+                </mat-form-field>
+                <div *ngIf="form.submitted && !password.valid" class="help-block">
+                  Password is required
+                </div>
+        </div>
+        <div>
+                <mat-form-field class="submitForm">
+                                       <input matInput type="password" class="form-control"  [ngModel]="confirmPassword"  name="confirmPassword" #confirmPassword="ngModel" placeholder="Confirm Password" required>
+                </mat-form-field>
+
+               {{ confirmPassword.value == password.value }} 
+        
+              <div *ngIf="form.submitted &&( !confirmPassword.valid && confirmPassword.value == password.value)"  class="help-block">
+                  Confirm Password is required
+              </div>
+              <div *ngIf="!(confirmPassword.value == password.value)"  class="help-block">
+                  Confirm Password dosn't match
+              </div>
+        </div>        
+        <div>
+                     <mat-checkbox class="submitForm" [(ngModel)]="checked" name="termsAndConditions">Agree with Terms And Conditions</mat-checkbox>
+        </div>
+        <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        </div>
+          </form>
+    </mat-step>
+    
+    </mat-vertical-stepper>
+    <button mat-raised-button color="primary" (click)="register()" [disabled]= "!form1.valid && (!form2.valid && !form3.valid)" >Register</button> 
+    <button mat-raised-button color="primary" (click)="backToLogin()">Login</button>
+    </form>

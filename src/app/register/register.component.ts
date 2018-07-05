@@ -16,6 +16,7 @@ registerForm: FormGroup;
   constructor(private router: Router, private frmbuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.buildForms();
   }
   register( ) {
     localStorage.setItem ('userInfo', JSON.stringify(this.model) );

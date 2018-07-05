@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RgFormsUsernameComponent } from '../rg-forms-username/rg-forms-username.component';
 import { RgFormsPersonalComponent } from '../rg-forms-personal/rg-forms-personal.component';
 import { RgFormsPasswordComponent } from '../rg-forms-password/rg-forms-password.component';
+import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +12,8 @@ import { RgFormsPasswordComponent } from '../rg-forms-password/rg-forms-password
 })
 export class RegisterComponent implements OnInit {
 model: Register = new Register();
-  constructor(private router: Router) { }
+registerForm: FormGroup;
+  constructor(private router: Router, private frmbuilder: FormBuilder) { }
 
   ngOnInit() {
   }
@@ -25,10 +27,10 @@ model: Register = new Register();
     this.router.navigate(['/login']);
   }
    buildForms() {
-   this.registerForm = this.Formbuilder.group({
-     username: RgFormsUsernameComponent.buildForm(this.program),
-     personal: RgFormsPersonalComponent.buildForm(this.program),
-     password: RgFormsPasswordComponent.buildForm(this.program)
+   this.registerForm = this.frmbuilder.group({
+     username: RgFormsUsernameComponent.buildForm(),
+     personal: RgFormsPersonalComponent.buildForm(),
+     password: RgFormsPasswordComponent.buildForm()
    });
 }
 

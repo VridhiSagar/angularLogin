@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 export class RegisterSubmitService {
 
   constructor() { }
-private envoke = false;
+ // private envoke = false;
 
-  onSubmit() {
-     this.envoke = true;
-  }
+  // onSubmit() {
+  //    this.envoke = true;
+  // }
 
   callAnotherComponent() {
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, NgForm, AbstractControl } from '@angular/forms';
 import { RegisterSubmitService } from '../register-submit.service';
 
 @Component({
@@ -9,27 +9,31 @@ import { RegisterSubmitService } from '../register-submit.service';
 })
 export class RgFormsPasswordComponent implements OnInit {
 passwordInfo: FormGroup;
-  constructor(private frnbuilder: FormBuilder) {
-    this.passwordInfo = frnbuilder.group({
+
+  constructor(private frmbuilder: FormBuilder) { }
+  public static buildForm() {
+    return new FormGroup({
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.compose([Validators.required ,
-                                                               Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]))
-
-    }, {validator: this.passwordMatchValidator});
+                                       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]))},
+                                       {Validator: this.passwordMatchValidator}
+                                      );
   }
-  passwordMatchValidator(g: FormGroup) {
-//     return g.get('password').value === g.get('passwordConfirm').value
-//        ? null : {'mismatch': true};
-if (!g.get('password') || !g.get('confirmPassword')) {
-  return null;
-}
 
-if (!g.get('password').value === !g.get('confirmPassword').value ) {
-  return null;
-}
-// tslint:disable-next-line:no-unused-expression
-return {mismatch: true};
-}
+  passwordMatchValidator(control: AbstractControl): {mismatch: boolean}  {
+
+                  // if (!control.get('password') || !control.get('confirmPassword')) {
+                  //   return null;
+                  // }
+
+                  if (control.get('password').value !== control.get('confirmPassword').value ) {
+                    return {mismatch: true};
+                  }
+                   }
+
+
+
+
   ngOnInit() {
   }
 

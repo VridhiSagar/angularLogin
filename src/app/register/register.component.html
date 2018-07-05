@@ -5,47 +5,42 @@
 <mat-vertical-stepper [linear]="isLinear" #stepper>
     
     <mat-step [stepControl]="register.get('username')">
-     
          <ng-template class="label" matStepLabel >Fill You Name and Email</ng-template>     
-           <app-rg-forms-username></app-rg-forms-username>
-                       <div>
-                            <button mat-raised-button color="primary" matStepperNext>Next</button>
-                          </div>
-        
+         <app-rg-forms-username></app-rg-forms-username>
+         <div>
+           <button mat-raised-button color="primary" matStepperNext>Next</button>
+         </div>
     </mat-step>
 
 
     
     
-    <mat-step [stepControl]="personal">
-       
+    <mat-step [stepControl]="register.get('personal')">
             <ng-template class="label" matStepLabel>Fill Your Personal Information</ng-template>
-
             <app-rg-forms-personal></app-rg-forms-personal>
             <div>
-                                  <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-                                  <button mat-raised-button color="primary" matStepperNext>Next</button>
-             </div>
-        
-    </mat-step>
+              <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+    </mat-step> 
 
 
 
 
-    <mat-step [stepControl]="Password">
-      <form class="form" #form3="ngForm" novalidate>
+    <mat-step [stepControl]="register.get('password')">
+     
         <ng-template class="label" matStepLabel>Enter Your Password</ng-template>
         <app-rg-forms-password></app-rg-forms-password>
         <div>
-                     <mat-checkbox class="submitForm" [(ngModel)]="checked" name="termsAndConditions">Agree with Terms And Conditions</mat-checkbox>
+            <mat-checkbox class="submitForm" [(ngModel)]="checked" name="termsAndConditions">Agree with Terms And Conditions</mat-checkbox>
         </div>
         <div>
-                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
         </div>
           </form>
     </mat-step>
     
     </mat-vertical-stepper>
-    <button mat-raised-button color="primary" (click)="register()" [disabled]= "!form1.valid && (!form2.valid && !form3.valid)" >Register</button> 
+    <button mat-raised-button color="primary" (click)="register()" >Register</button> 
     <button mat-raised-button color="primary" (click)="backToLogin()">Login</button>
     </form>

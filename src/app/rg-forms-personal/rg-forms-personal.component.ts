@@ -11,13 +11,16 @@ export class RgFormsPersonalComponent implements OnInit {
   personal: FormGroup;
 
   constructor(private frmbuilder: FormBuilder) {
-    this.personal = frmbuilder.group({
+
+  }
+  public static buildForm() {
+    return new FormGroup ({
       DOB: new FormControl('', Validators.required),
-gender: new FormControl('', Validators.required),
-contact: new FormControl('', Validators.compose([Validators.required,
-                                    Validators.maxLength(10),
-                                    Validators.minLength(10)]))
-    }) ;
+      gender: new FormControl('', Validators.required),
+      contact: new FormControl('', Validators.compose([Validators.required,
+                                          Validators.maxLength(10),
+                                          Validators.minLength(10)]))
+    });
   }
 
   ngOnInit() {

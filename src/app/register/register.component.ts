@@ -34,7 +34,4 @@ registerForm: FormGroup;
      password: RgFormsPasswordComponent.buildForm()
    });
 }
-
-
-
 }

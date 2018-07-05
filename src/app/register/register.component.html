@@ -3,7 +3,7 @@
 </app-toolbar>
 <h2>REGISTER</h2>
 
-<form #form="ngForm" [formGroup]="register">
+<form  [formGroup]="register" novalidate>
 <mat-vertical-stepper [linear]="isLinear" #stepper>
     
     <mat-step [stepControl]="register.get('username')">

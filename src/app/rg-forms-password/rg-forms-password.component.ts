@@ -16,20 +16,20 @@ passwordInfo: FormGroup;
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.compose([Validators.required ,
                                        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]))},
-                                       {Validator: this.passwordMatchValidator}
+                                       // {Validator: this.passwordMatchValidator}
                                       );
   }
 
-  passwordMatchValidator(control: AbstractControl): {mismatch: boolean}  {
+  // passwordMatchValidator(control: AbstractControl): {mismatch: boolean}  {
 
-                  // if (!control.get('password') || !control.get('confirmPassword')) {
-                  //   return null;
-                  // }
+  //                 // if (!control.get('password') || !control.get('confirmPassword')) {
+  //                 //   return null;
+  //                 // }
 
-                  if (control.get('password').value !== control.get('confirmPassword').value ) {
-                    return {mismatch: true};
-                  }
-                   }
+  //                 if (control.get('password').value !== control.get('confirmPassword').value ) {
+  //                   return {mismatch: true};
+  //                 }
+  //                  }
 
 
 

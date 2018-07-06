@@ -6,13 +6,6 @@ export interface Data {
   data: any;
   }
 
-  // const UserData: Data[] = [
-  //   {Field: 'Name', data: 'balhhhhh'},
-  //   {Field: 'EmailId', data: 'jlkjdoqod'},
-  //   {Field: 'Password', data: 'hjhdajlji'},
-  //   {Field: 'DOB', data: 'hkjhdqlhxx'},
-  //   {Field: 'ContactInfo', data: 'hisachklhla'}
-  // ];
 
 
 @Component({
@@ -38,7 +31,8 @@ export class SidenavLink1Component implements OnInit {
     {Field: 'EmailId', data: this.currentUser.email},
     {Field: 'Password', data: this.currentUser.password},
     {Field: 'DOB', data: this.currentUser.dateOfBirth},
-    {Field: 'ContactInfo', data: this.currentUser.contact}
+    {Field: 'ContactInfo', data: this.currentUser.contact},
+    {Field: 'Gender', data: this.currentUser.gender}
   ];
 
   }

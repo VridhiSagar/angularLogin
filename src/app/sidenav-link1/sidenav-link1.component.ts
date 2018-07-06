@@ -34,7 +34,7 @@ export class SidenavLink1Component implements OnInit {
     console.log(this.userInfo);
     this.currentUser = JSON.parse(this.userInfo);
     this.dataSource  = [
-    {Field: 'Name', data: this.currentUser.firstname + this.currentUser.lastname },
+    {Field: 'Name', data: this.currentUser.firstname + ' ' + this.currentUser.lastname },
     {Field: 'EmailId', data: this.currentUser.email},
     {Field: 'Password', data: this.currentUser.password},
     {Field: 'DOB', data: this.currentUser.dateOfBirth},

@@ -32,7 +32,7 @@ registerForm: FormGroup;
 
 
  };
- console.log(this.registerForm.value.usernameParent.firstname);
+ console.log(this.registerForm.value.personalParent.dateOfBirth);
  localStorage.setItem('userInfo', JSON.stringify(obj));
  this.router.navigate(['/login']);
   }

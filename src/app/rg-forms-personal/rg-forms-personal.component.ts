@@ -15,7 +15,7 @@ export class RgFormsPersonalComponent implements OnInit {
   }
   public static buildForm() {
    return new FormGroup ({
-      DOB: new FormControl('', Validators.required),
+    dateOfBirth: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
       contact: new FormControl('', Validators.compose([Validators.required,
                                           Validators.maxLength(10),

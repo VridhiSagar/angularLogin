@@ -34,8 +34,8 @@ ngOnInit() {
 buildForms() {
   this.registerForm = this.frmbuilder.group({
     username: RgFormsUsernameComponent.buildForm(),
-     personal: RgFormsPersonalComponent.buildForm(),
-      password: RgFormsPasswordComponent.buildForm()
+    // personal: RgFormsPersonalComponent.buildForm(),
+     // password: RgFormsPasswordComponent.buildForm()
   });
  }
 }

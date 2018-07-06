@@ -14,14 +14,15 @@ export class RgFormsUsernameComponent implements OnInit {
 
 // Program: FormGroup;
 
-username: FormGroup;
+
+  static username: FormGroup;
 
   constructor(private frmbuilder: FormBuilder) {
 
 
   }
   public static buildForm() {
-    return new FormGroup ({
+    this.username = new FormGroup({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.compose([

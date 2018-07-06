@@ -8,11 +8,12 @@ import { RegisterSubmitService } from '../register-submit.service';
   styleUrls: ['./rg-forms-password.component.css']
 })
 export class RgFormsPasswordComponent implements OnInit {
-passwordInfo: FormGroup;
+
+  static passwordInfo: FormGroup;
 
   constructor(private frmbuilder: FormBuilder) { }
   public static buildForm() {
-    return new FormGroup({
+   this.passwordInfo = new FormGroup({
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.compose([Validators.required ,
         Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]))},

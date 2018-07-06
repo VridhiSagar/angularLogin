@@ -8,13 +8,14 @@ import { RegisterSubmitService } from '../register-submit.service';
   styleUrls: ['./rg-forms-personal.component.css']
 })
 export class RgFormsPersonalComponent implements OnInit {
-  personal: FormGroup;
+
+  static personal: FormGroup;
 
   constructor(private frmbuilder: FormBuilder) {
 
   }
   public static buildForm() {
-    return new FormGroup ({
+    this.personal =  new FormGroup ({
       DOB: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
       contact: new FormControl('', Validators.compose([Validators.required,

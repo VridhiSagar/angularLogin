@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, NgForm, AbstractControl } from '@angular/forms';
 import { RegisterSubmitService } from '../register-submit.service';
 
@@ -8,12 +8,13 @@ import { RegisterSubmitService } from '../register-submit.service';
   styleUrls: ['./rg-forms-password.component.css']
 })
 export class RgFormsPasswordComponent implements OnInit {
+  @Input() passwordInfo: FormGroup;
 
-  static passwordInfo: FormGroup;
+
 
   constructor(private frmbuilder: FormBuilder) { }
   public static buildForm() {
-   this.passwordInfo = new FormGroup({
+   return new FormGroup({
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.compose([Validators.required ,
         Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]))},

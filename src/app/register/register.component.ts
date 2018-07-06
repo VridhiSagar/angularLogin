@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Register} from '../registerUser';
+import { Register } from '../registerUser';
 import { Router } from '@angular/router';
 import { RgFormsUsernameComponent } from '../rg-forms-username/rg-forms-username.component';
 import { RgFormsPersonalComponent } from '../rg-forms-personal/rg-forms-personal.component';
@@ -15,9 +15,6 @@ model: Register = new Register();
 registerForm: FormGroup;
   constructor(private router: Router, private frmbuilder: FormBuilder) { }
 
-  ngOnInit() {
-    this.buildForms();
-  }
   register( ) {
     localStorage.setItem ('userInfo', JSON.stringify(this.model) );
     this.router.navigate(['/login']);
@@ -34,5 +31,8 @@ registerForm: FormGroup;
      personal: RgFormsPersonalComponent.buildForm(),
      password: RgFormsPasswordComponent.buildForm()
    });
+}
+ngOnInit() {
+  this.buildForms();
 }
 }

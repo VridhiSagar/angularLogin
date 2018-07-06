@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RgFormsPasswordComponent } from './rg-forms-password.component';
 
@@ -8,7 +9,8 @@ describe('RgFormsPasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RgFormsPasswordComponent ]
+      declarations: [ RgFormsPasswordComponent ],
+      imports: [ReactiveFormsModule]
     })
     .compileComponents();
   }));

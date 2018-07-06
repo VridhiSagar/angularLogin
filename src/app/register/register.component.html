@@ -3,12 +3,12 @@
 </app-toolbar>
 <h2>REGISTER</h2>
 
-<form  [formGroup]="register" novalidate ng-submit="register()">
+<form  [formGroup]="registerForm" novalidate ng-submit="register()">
 <mat-vertical-stepper [linear]="isLinear" #stepper>
     
-    <mat-step [stepControl]="register.get('username')">
-         <ng-template class="label" matStepLabel >Fill You Name and Email</ng-template>     
-         <app-rg-forms-username></app-rg-forms-username>
+    <mat-step [stepControl]="registerForm.get('username')">
+         <!-- <ng-template class="label" matStepLabel >Fill You Name and Email</ng-template>      -->
+         <app-rg-forms-username ></app-rg-forms-username>
          <div>
            <button mat-raised-button color="primary" matStepperNext>Next</button>
          </div>
@@ -17,9 +17,9 @@
 
     
     
-    <mat-step [stepControl]="register.get('personal')">
+    <mat-step [stepControl]="registerForm.get('personal')">
             <ng-template class="label" matStepLabel>Fill Your Personal Information</ng-template>
-            <app-rg-forms-personal></app-rg-forms-personal>
+            <app-rg-forms-personal ></app-rg-forms-personal>
             <div>
               <button mat-raised-button color="primary" matStepperPrevious>Back</button>
               <button mat-raised-button color="primary" matStepperNext>Next</button>
@@ -29,12 +29,12 @@
 
 
 
-    <mat-step [stepControl]="register.get('password')">
+    <mat-step [stepControl]="registerForm.get('password')">
      
         <ng-template class="label" matStepLabel>Enter Your Password</ng-template>
-        <app-rg-forms-password></app-rg-forms-password>
+        <app-rg-forms-password > </app-rg-forms-password>
         <div>
-            <mat-checkbox class="submitForm" [(ngModel)]="checked" name="termsAndConditions">Agree with Terms And Conditions</mat-checkbox>
+            <mat-checkbox class="submitForm" >Agree with Terms And Conditions</mat-checkbox>
         </div>
         <div>
             <button mat-raised-button color="primary" matStepperPrevious>Back</button>

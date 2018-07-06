@@ -18,10 +18,23 @@ registerForm: FormGroup;
    }
 
   register( ) {
-    localStorage.setItem ('userInfo', JSON.stringify(this.model) );
-    this.router.navigate(['/login']);
-    console.log(this.model.password);
+   // localStorage.setItem ('userInfo', JSON.stringify(this.model) );
 
+    // console.log(this.model.password);
+ const obj = {
+  firstname: this.registerForm.value.usernameParent.firstname,
+  lastname: this.registerForm.value.usernameParent.lastname,
+  email: this.registerForm.value.usernameParent.email,
+  dateOfBirth: this.registerForm.value.personalParent.dateOfBirth,
+  gender: this.registerForm.value.personalParent.gender,
+  contact: this.registerForm.value.personalParent.contact,
+  password: this.registerForm.value.passwordParent.password,
+
+
+ };
+ console.log(this.registerForm.value.usernameParent.firstname);
+ localStorage.setItem('userInfo', JSON.stringify(obj));
+ this.router.navigate(['/login']);
   }
   backToLogin() {
    sessionStorage.removeItem('auth');

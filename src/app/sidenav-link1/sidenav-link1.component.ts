@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Register} from '../registerUser' ;
+
 
 export interface Data {
   Field: string;
@@ -22,7 +22,7 @@ export interface Data {
 })
 export class SidenavLink1Component implements OnInit {
   userInfo: string ;
-  currentUser: Register ;
+  currentUser: any;
   displayedColumns: string[] = ['Field', 'data'];
 
   dataSource:  Data[] = [];
@@ -34,11 +34,11 @@ export class SidenavLink1Component implements OnInit {
     console.log(this.userInfo);
     this.currentUser = JSON.parse(this.userInfo);
     this.dataSource  = [
-    {Field: 'Name', data: this.currentUser.first + this.currentUser.last },
+    {Field: 'Name', data: this.currentUser.firstname + this.currentUser.lastname },
     {Field: 'EmailId', data: this.currentUser.email},
     {Field: 'Password', data: this.currentUser.password},
-    {Field: 'DOB', data: this.currentUser.DOB},
-    {Field: 'ContactInfo', data: this.currentUser.contactNo}
+    {Field: 'DOB', data: this.currentUser.dateOfBirth},
+    {Field: 'ContactInfo', data: this.currentUser.contact}
   ];
 
   }

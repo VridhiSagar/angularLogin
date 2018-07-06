@@ -18,15 +18,15 @@ export class RgFormsPasswordComponent implements OnInit {
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.compose([Validators.required ,
         Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]))},
-                                       // {Validator: this.passwordMatchValidator}
+                                     //  { validator: passwordMatchValidator }
                                       );
   }
 
-  // passwordMatchValidator(control: AbstractControl): {mismatch: boolean}  {
+  //  passwordMatchValidator(control: AbstractControl): {mismatch: boolean}  {
 
-  //                 // if (!control.get('password') || !control.get('confirmPassword')) {
-  //                 //   return null;
-  //                 // }
+  //                if (!control.get('password') || !control.get('confirmPassword')) {
+  //                    return null;
+  //                 }
 
   //                 if (control.get('password').value !== control.get('confirmPassword').value ) {
   //                   return {mismatch: true};

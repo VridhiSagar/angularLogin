@@ -17,7 +17,7 @@
     <mat-form-field>
     
     <mat-select class="form-control" placeholder="Gender" formControlName="gender" required>
-            <mat-option>--None--</mat-option>
+            
             <mat-option [value]="Male">Male</mat-option>
             <mat-option [value]="Female">Female</mat-option>
             <mat-option [value]="others">Others</mat-option>
@@ -26,7 +26,7 @@
       </mat-form-field>
       <div *ngIf="personal.controls['gender'].touched && !personal.controls['gender'].valid">
           <span *ngIf="personal.controls['gender'].hasError('required')">
-            Last name is required
+            Gender is required
           </span>
           </div>
     </div>
@@ -38,7 +38,7 @@
     <div *ngIf="personal.controls['contact'].touched && !personal.controls['contact'].valid">
         <span *ngIf="personal.controls['contact'].hasError('required')  ">
     
-          email is required
+          Contact No
         </span>
         
         </div>

@@ -34,6 +34,9 @@ export class LoginFormComponent implements OnInit {
 
   }
  register() {
+   if (localStorage.getItem('userInfo')) {
+    localStorage.removeItem('userInfo');
+   }
    this.router.navigate(['./register']) ;
  }
 }

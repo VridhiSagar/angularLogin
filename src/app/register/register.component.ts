@@ -25,6 +25,7 @@ registerForm: FormGroup;
 
   }
   backToLogin() {
+   sessionStorage.removeItem('auth');
     this.router.navigate(['/login']);
   }
    buildForms() {

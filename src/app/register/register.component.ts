@@ -11,31 +11,31 @@ import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angula
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-// model: Register = new Register();
+ model: Register = new Register();
 registerForm: FormGroup;
   constructor(private router: Router, private frmbuilder: FormBuilder) {
-    // this.buildForms();
+
    }
 
-  // register( ) {
-  //   localStorage.setItem ('userInfo', JSON.stringify(this.model) );
-  //   this.router.navigate(['/login']);
-  //   console.log(this.model.password);
+  register( ) {
+    localStorage.setItem ('userInfo', JSON.stringify(this.model) );
+    this.router.navigate(['/login']);
+    console.log(this.model.password);
 
-  // }
-  // backToLogin() {
-  //  sessionStorage.removeItem('auth');
-  //   this.router.navigate(['/login']);
-  // }
+  }
+  backToLogin() {
+   sessionStorage.removeItem('auth');
+    this.router.navigate(['/login']);
+  }
 
 ngOnInit() {
   this.buildForms();
 }
 buildForms() {
   this.registerForm = this.frmbuilder.group({
-    username: RgFormsUsernameComponent.buildForm(),
-    // personal: RgFormsPersonalComponent.buildForm(),
-     // password: RgFormsPasswordComponent.buildForm()
+    usernameParent: RgFormsUsernameComponent.buildForm(),
+    personalParent: RgFormsPersonalComponent.buildForm(),
+    passwordParent: RgFormsPasswordComponent.buildForm()
   });
  }
 }

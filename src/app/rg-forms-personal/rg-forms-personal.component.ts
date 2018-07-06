@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { RegisterSubmitService } from '../register-submit.service';
 
@@ -8,14 +8,13 @@ import { RegisterSubmitService } from '../register-submit.service';
   styleUrls: ['./rg-forms-personal.component.css']
 })
 export class RgFormsPersonalComponent implements OnInit {
-
-  static personal: FormGroup;
+  @Input() personal: FormGroup;
 
   constructor(private frmbuilder: FormBuilder) {
 
   }
   public static buildForm() {
-    this.personal =  new FormGroup ({
+   return new FormGroup ({
       DOB: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
       contact: new FormControl('', Validators.compose([Validators.required,

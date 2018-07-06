@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RegisterSubmitService } from '../register-submit.service';
 
 import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
@@ -10,29 +10,24 @@ import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angula
   styleUrls: ['./rg-forms-username.component.css']
 })
 export class RgFormsUsernameComponent implements OnInit {
-
-
-// Program: FormGroup;
-
-
-  static username: FormGroup;
-
+  @Input() username: FormGroup;
   constructor(private frmbuilder: FormBuilder) {
 
 
   }
   public static buildForm() {
-    this.username = new FormGroup({
+    return new FormGroup({
       firstname: new FormControl('', Validators.required),
-      lastname: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.compose([
-        Validators.required,
+       lastname: new FormControl('', Validators.required),
+       email: new FormControl('', Validators.compose([
+       Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ]))
-    });
-  }
+  });
+}
 
   ngOnInit() {
+
   }
 
 }
